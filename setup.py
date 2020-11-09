@@ -9,7 +9,7 @@ with codecs_open('README.rst', encoding='utf-8') as f:
 
 setup(name='tmc_uart',
       version='0.1.0',
-      description=u"communicate with tmc motioncontrolor with uart",
+      description=u"Read/Write to Trinamic motion controlor TMC5160 via the uart interface",
       long_description=long_description,
       classifiers=[],
       keywords='tmc5160 trinamic',
