@@ -1,12 +1,17 @@
 tmc_uart
 ========
 
-A python package to talk via the uart to TMC motion controllers. This package includes
-register address for specicially for TMC5160 as specified here: 
+A python package to read/write to registers to TMC motion controllers via the uart. This package includes
+register addresses for the TMC5160 as specified here: 
 
 https://www.trinamic.com/fileadmin/assets/Products/ICs_Documents/TMC5160A_Datasheet_Rev1.14.pdf
 
-Other TMC controllers could be adapted by providing an include file with its specific register addresses. 
+Other TMC controllers could be adapted by providing the register include file with its specific register addresses. 
+
+There are some test scripts in the ./bin directory.  Tested on both Windows and Raspberry PI with a USB/RS485 adapter
+to a custom board with a TMC5160 chip with uart pins broken out.  
+
+There are two read functions. read_int() and read_reg(). The first returns a 32 bit value and second returns a 4 byte object.
 
 
 Synopsis
