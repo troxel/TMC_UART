@@ -13,6 +13,10 @@ to a custom board with a TMC5160 chip with uart pins broken out.
 
 There are two read functions. read_int() and read_reg(). The first returns a 32 bit value and second returns a 4 byte object.
 
+Repository can be found: 
+
+https://github.com/troxel/TMC_UART
+
 
 Synopsis
 -------------------------
