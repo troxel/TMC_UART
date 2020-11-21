@@ -31,9 +31,12 @@ Synopsis
 
     mtr_id = 0
     
-    ifcnt0 =  drv.read_int(0, reg.IFCNT)
+    ifcnt0 =  drv.read_int(0, reg.IFCNT) 
+    
     drv.write_reg(mtr_id,reg.GCONF,0x0000000C)
-    ifcnt1 =  drv.read_int(0, reg.IFCNT)
+    
+    ifcnt1 =  drv.read_int(0, reg.IFCNT)  # Number of successful uart writes
+    
     print("IFCNT before and after: {} {}".format(ifcnt0,ifcnt1))
 
     gconf = drv.read_reg(mtr_id, reg.GCONF)
@@ -42,4 +45,16 @@ Synopsis
     xactual = drv.read_int(mtr_id,reg.XACTUAL)
     print("XACTUAL = ",xactual)
 
+
+Notes:
+-----------------------------
+
+In read_reg and write_reg there is a sleep function call that should be tuned to your specific hardware and baud rate. Set up a loop with repeated read or write calls and 
+decrease sleep time until you start missing transactions. I was able to get 500000k baud without problem. You can go higher but would need to supply an external clock to the chip. 
+
+I used a regular RS485/USB adapter to communicate using differential signals. Trinamic has indicated that the interface is only designed for 3.3 volts. I measured the device I was using and it was around 4 volts peak-to-peak, no problems as of yet after hundreds of hours of operation.  
+
+I am using a custom board with multiple TMC5160 designed by 
+
+https://customcircuitsolutions.com/
     
